@@ -106,19 +106,7 @@
 //   a: 2
 // }
 
-// // 原生用法
-// // 返回一个硬编码的新函数，把指定的参数设置为 this 的上下文并调用原始函数
+// 原生用法
+// 返回一个硬编码的新函数，把指定的参数设置为 this 的上下文并调用原始函数
 // const bar = foo.bind(obj);
 // console.log(bar(3));  // 5
-
-function Foo() {
-  
-}
-
-const bar = new Foo();
-bar.test = function() {
-  console.log(this);
-}
-console.log(bar.__proto__, Foo.prototype);
-bar.test();
-console.log(bar);
