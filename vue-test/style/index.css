@@ -1,0 +1,15 @@
+:root {
+  font-size: 18px;
+  font-family: Roboto;
+}
+
+.container {
+  margin: auto;
+  width: 80%;
+  min-width: 768px;
+}
+
+div {
+  outline: 1px solid cyan;
+  margin: 2rem;
+}
