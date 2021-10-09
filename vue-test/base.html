@@ -78,9 +78,35 @@
   </div>
 
   <div class="demo" id="app">
-    <ul v-for="numbers in sets">
-      <li v-for="n in even(numbers)" :key="n">{{ n }}</li>
+    <ul>
+      <template v-for="item in items" :key="item.msg">
+        <li>{{ item }}</li>
+        <li class="divider" role="presentation"></li>
+      </template>
     </ul>
+  </div>
+
+  <div class="demo" id="v-for-in-component">
+    <div id="todo-list-example">
+      <form v-on:submit.prevent='addNewTodo'>
+        <label for="new-todo">Add a todo</label>
+        <!-- v-model 表单和状态之间的双向绑定 -->
+        <input 
+          v-model="newTodoText" 
+          id="new-todo" 
+          placeholder="E.g. Feed the cat"
+        />
+        <button>Add</button>
+      </form>
+      <ul>
+        <todo
+          v-for="(todo, index) in todos"
+          :key="todo.id"
+          :title="todo.title"
+          @remove="todos.splice(index, 1)"
+        ></todo>
+      </ul>
+    </div>
   </div>
   
   <script src="https://unpkg.com/vue@next"></script>
@@ -93,25 +119,54 @@
   <script src="script/base/vfor.js"></script>
   <script src="script/base/component.js"></script>
   <script>
-    const toApp = Vue.createApp({
-      data() {
-        return {
-          sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
-        }
-      },
-      methods: {
-        even(numbers) {
-          return numbers.filter(number => number % 2 === 0)
-        }
-      },
-      computed: {
-        evenN() {
-          console.log('test')
-        }
+    const app2 = Vue.createApp({
+    data() {
+      return {
+        newTodoText: '',
+        todos: [
+          {
+            id: 1,
+            title: 'Do the dishes'
+          },
+          {
+            id: 2,
+            title: 'Take out the trash'
+          },
+          {
+            id: 3,
+            title: 'Mow the lawn'
+          }
+        ],
+        nextTodoId: 4
       }
-    })
+    },
+    methods: {
+      getNextId() {
+        return this.todos.length++
+      },
+      addNewTodo() {
+        this.todos.push({
+          id: this.nextTodoId++,
+          title: this.newTodoText
+        })
+        this.newTodoText = ''
+      }
+    }
+  })
 
-    toApp.mount('#app')
+  app2.component('todo', {
+    template: `
+      <li>
+        {{ title }}
+        <button @click="$emit('remove')">Remove</button>
+      </li>
+    `,
+    props: ['title'],
+    emits: ['remove']
+  })
+
+  app2.mount('#todo-list-example')
+
   </script>
 </body>
 </html>

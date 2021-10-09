@@ -13,3 +13,8 @@ div {
   outline: 1px solid cyan;
   margin: 2rem;
 }
+
+.divider {
+  border-bottom: 2px solid yellow;
+  margin-bottom: 2rem;
+}
