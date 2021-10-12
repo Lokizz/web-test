@@ -12,10 +12,9 @@
     <div id="blog-demo">
       <blog-post 
         v-for="post in posts"
-
         :key="post.id"
-        title="post.title"
-        content="post.content"
+        :title="post.title"
+        :content="post.content"
       ></blog-post>
       <li v-for="post in posts">{{ post.title }}</li>
     </div>
