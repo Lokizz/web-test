@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/index.css">
+  <title>Vue Props</title>
+</head>
+<body>
+  <div class="demo">
+    <div id="blog-demo">
+      <blog-post 
+        v-for="post in posts"
+
+        :key="post.id"
+        title="post.title"
+        content="post.content"
+      ></blog-post>
+      <li v-for="post in posts">{{ post.title }}</li>
+    </div>
+  </div>
+
+  
+  <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          posts: [
+            {
+              id:0,
+              title: 'Blog0',
+              content: 'This is the content of blog0.'
+            },
+            {
+              id:1,
+              title: 'Blog1',
+              content: 'This is the content of blog1.'
+            },
+            {
+              id:2,
+              title: 'Blog2',
+              content: 'This is the content of blog2.'
+            },
+            {
+              id:3,
+              title: 'Blog3',
+              content: 'This is the content of blog3.'
+            }
+          ]
+        }
+      }
+    })
+
+    app.component('blog-post', {
+      // 通过 props 注册自定义的属性
+      // 再使用 v-bind 绑定对应的自定义属性
+      props: ['title', 'content'],
+      template: `
+        <h5>{{ title }}</h5>
+        <p>{{ content }}</p>
+      `
+    })
+
+    app.mount('#blog-demo')
+  </script>
+</body>
+</html>
