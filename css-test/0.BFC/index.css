@@ -1,0 +1,151 @@
+body,
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  color: darkmagenta;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+}
+
+.example {
+  outline: 1px solid darkorange;
+  margin-top: 20px;
+}
+
+.overflow-div > * {
+  height: 200px;
+  width: 200px;
+  background: lightcoral;
+  margin: 40px auto;
+  display: grid;
+  place-items: center;
+}
+
+.color {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+
+.green {
+  background: lightgreen;
+}
+
+.pink {
+  background: pink;
+}
+
+.blue {
+  background: lightblue;
+}
+
+
+/* * BFC 应用 */
+/* ? 1. 取消垂直方向上的 margin 重叠 */
+.exp1 .overflow-div {
+  color: white;
+  overflow: hidden;
+}
+
+/* ? 2. 取消嵌套元素的 margin 塌陷 */
+.exp2 ul {
+  overflow: hidden;
+}
+
+.exp2 li {
+  /* 取消 li 间的垂直 margin 重叠 */
+  display: inline-block;
+  width: 100%;
+}
+
+/* ? 3. 取消内部浮动 */
+.exp3 .outer-div {
+  overflow: hidden;
+}
+
+/* ? 4. 自适应多栏布局 */
+/* 4.1 自适应两栏布局 */
+.two-cols {
+  height: 40vh;
+  line-height: 40vh;
+}
+
+.two-cols .aside-div {
+  background: lightcoral;
+  width: 20%;
+  float: left;
+  height: 100%;
+  color: white;
+  font-size: 24px;
+}
+
+.two-cols .main-div {
+  background: pink;
+  height: 100%;
+  color: white;
+  font-size: 24px;
+  outline: 2px solid yellow;
+}
+
+/* ! BFC 的区域不会与浮动元素区域重叠 */
+.two-cols .main-div {
+  overflow: hidden;
+}
+
+/* 4.2 圣杯布局 */
+.holy-grail {
+  line-height: 40vh;
+  color: white;
+  font-size: 24px;  
+}
+
+.holy-grail .left-div {
+  float: left;
+  width: 20%;
+  height: 40vh;
+}
+
+.holy-grail .right-div {
+  float: right;
+  width: 20%;
+  height: 40vh;
+}
+
+.holy-grail .mid-div {
+  height: 40vh;
+  overflow: hidden;
+}
+
+.test-div {
+  width: 80%;
+  height: 100px;
+  margin: 40px auto;
+  border-radius: 8px;
+  background: lightcoral;
+  color: #eee;
+  padding: 10px;
+  position: relative;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+
+  overflow-x: visible;
+  overflow-y: hidden;
+  /* text-overflow: ellipsis; */
+  /* word-break: break-all; */
+}
+
+.test-div::after {
+  content: "....";
+  display: block;
+  font-size: 24px;
+  background: pink;
+  color: black;
+  padding-right: 10px;
+}

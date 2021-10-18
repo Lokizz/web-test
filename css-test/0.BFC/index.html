@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>BFC 应用</title>
+</head>
+<body>
+  <div class="test-div">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla quibusdam repellendus rerum nihil ut inventore ducimus veniam enim soluta cupiditate consectetur suscipit necessitatibus qui libero, unde quasi aperiam earum distinctio sapiente tempora ipsa placeat ad! Voluptas quam dicta debitis iste itaque laboriosam aperiam, ratione soluta laborum. Ipsum nostrum, sint pariatur ad quae aut expedita fugiat voluptate fuga at quam tempore alias iste assumenda odit a officiis perferendis excepturi 1 qui natus veniam optio? Vero vel recusandae ipsa ducimus pariatur cumque. Necessitatibus ea hic culpa libero illum obcaecati commodi facere est cum deserunt dolor quaerat itaque, neque, molestiae iste rerum quo! Et possimus distinctio cum nisi vero sequi ex ratione ad perferendis aliquid sunt iusto, excepturi unde illum quam tenetur repellendus ducimus. Culpa qui tempora molestias nihil enim quam fugiat atque ratione, ipsum, placeat hic dignissimos ab, consequatur molestiae quasi! Quos perspiciatis eveniet aperiam earum harum! Repudiandae beatae mollitia sapiente?
+  </div>
+  <div class="container">
+    <h1>BFC 的应用</h1>
+    <h2>1. 防止 margin 重叠（塌陷）</h2>
+    <div class="example exp1">
+      <h3>1.1 垂直方向上的 margin 重叠</h3>
+      <div class="overflow-div">
+        <p>margin: 40px auto;</p>
+      </div>
+      <div class="overflow-div">
+        <p>margin: 40px auto;</p>
+      </div>
+    </div>
+    <div class="example exp2" style="overflow: hidden;">
+      <h3>1.2 嵌套 margin 重叠</h3>
+      <ul style="margin-top: 60px;">
+        <li class="blue" style="margin-top: 80px; margin-bottom: 20px;">ul: margin-top: 60px;</li>
+        <li style="margin-top: 80px;">li: margin-top: 80px;</li>
+      </ul>
+    </div>
+    <h2>2. 清除内部浮动</h2>
+    <div class="example exp3">
+      <div class="outer-div" style="border: 1px solid red;">
+        <div style="float: left;height: 100px;width: 100px;background: lightcoral; color: white; line-height: 100px;">
+          Inner float
+        </div>
+      </div>
+      
+    </div>
+    <h2>3. 自适应多栏布局</h2>
+    <div class="example exp4">
+      <h3>3.1 自适应两栏布局 </h3>
+      <div class="two-cols">
+        <div class="aside-div">
+          aside
+        </div>
+        <div class="main-div">
+          main content
+        </div>
+      </div>
+    </div>
+    <div class="example exp5">
+      <h3>3.2 圣杯布局</h3>
+      <div class="holy-grail">
+        <div class="left-div green">Fixed </div>
+        <div class="right-div blue">Fixed</div>
+        <div class="mid-div pink">Responsive</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
