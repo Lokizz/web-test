@@ -12,24 +12,28 @@
 body {
   margin: 0;
   padding: 0;
+  background: #180454;
 }
 
 .parallax-wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 .parallax-text {
   position: absolute;
-  top: 1rem;
+  top: 40%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 
-  z-index: 99;
+  z-index: 999;
   color: white;
   font-size: 4rem;
   text-transform: uppercase;
+  letter-spacing: 2rem;
   font-weight: bold;
   user-select: none;
+  border-bottom: 1px solid lightcyan;
 }
 
 .parallax-top-layer,
@@ -48,50 +52,199 @@ body {
   display: block;
 }
 
+/* ? top-layer */
 .layer-1 {
   z-index: 999;
   bottom: 0;
   left: 0;
   width: 30%;
-  outline: 2px solid yellow;
 }
 
 .layer-2 {
   z-index: 899;
   width: 100%;
   bottom: 0;
-  outline: 2px solid red;
-  display: none;
+}
+
+.layer-2 {
+  animation-name: brighten;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes brighten {
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(180%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
 }
 
 .layer-3 {
   z-index: 799;
+  bottom: .2rem;
   right: 0;
   width: 50%;
-  height: auto;
-  top: 0;
 }
 
+/* ? planet */
 .large-planet {
-  width: 12rem;
+  z-index: 699;
+  width: 10rem;
   height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 24%;
+  left: 40%;
+  border-radius: 50%;
+  box-shadow: 0 0 1rem 1rem rgba(255, 255, 238, 0.4);
+}
+
+.small-planet {
+  z-index: 699;
+  top: 10%;
+  right: 8%;
+  width: 8%;
+  border-radius: 50%;
+  background: cyan;
+  opacity: 0.8;
+  /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+  box-shadow: 
+    0 0 8px 4px rgba(255, 255, 238, 0.4),
+    4px 2px 4px 4px rgba(40, 27, 212, 0.6);
+}
+
+/* ? glimmer */
+.parallax-glimmer {
+  z-index: 699;
+  top: 24%;
+  left: 56%;
+
+  width: 3rem;
 }
 
 .parallax-glimmer {
+  animation-name: brighten2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
 
+@keyframes brighten2 {
+  20% {
+    filter: brightness(80%);
+    transform: scale(1);
+  }
+
+  50% {
+    filter: brightness(300%);
+    transform: scale(1.2);
+  }
+
+  100% {
+    filter: brightness(120%);
+    transform: scale(1);
+  }
+}
+
+/* ? left float rocks */
+.left-1 {
+  z-index: 999;
+  left: 8%;
+  bottom: 36%;
+
+  width: 2rem;
+}
+
+.left-2 {
+  z-index: 799;
+  left: 12%;
+  bottom: 14%;
+
+  width: 2.5rem;
+}
+
+.left-3 {
+  z-index: 799;
+  left: 18%;
+  bottom: 14%;
+
+  width: 7rem;
+}
+
+.left-4 {
+  z-index: 999;
+  left: 20%;
+  bottom: 46%;
+
+  width: 3.5rem;
+}
+
+.left-5 {
+  z-index: 999;
+  left: 32%;
+  top: 40%;
+  
+
+  width: .6rem;
+}
+
+.left-6 {
+  z-index: 999;
+  left: 33%;
+  bottom: 25%;
+
+  width: 2rem;
+}
+
+.right {
+  z-index: 699;
+  right: 20%;
+  bottom: 24%;
+
+  width: 8rem;
 }
 
 @media screen and (min-width: 1800px) {
-  body {
-    max-width: 1800px;
-    min-width: 1200px;
+  :root {
+    font-size: 28px;
   }
 
   .container {
-    width: 80%;
+    width: 100%;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .right {
+    z-index: 699;
+    right: 14%;
+    bottom: 24%;
+  
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    font-size: 10px;
+  }
+
+  .right {
+    z-index: 699;
+    right: 14%;
+    bottom: 24%;
+  
+    width: 4rem;
   }
 }
