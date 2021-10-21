@@ -1,3 +1,9 @@
+/* 实现要点 
+? 1. 通过 mousemove 事件获取 event.clientX/Y
+? 2. clientX/Y 与图片素材之间的宽高相关关系决定素材位移的大小与方向
+? 3. 利用 transform 的 translate 实现位移效果
+*/
+
 const wrapper = document.querySelector('.parallax-wrapper')
 const planets = document.querySelectorAll('.parallax-planet')
 const floatingRocks = document.querySelectorAll('.parallax-floating-rock')
