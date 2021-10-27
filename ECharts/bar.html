@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Bar example</title>
+</head>
+<body>
+  <div class="chart-container" style="width: 60%; height: 30vh; margin: auto;"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js"></script>
+  <script>
+    const barChart = echarts.init(document.querySelector('.chart-container'))
+    const xData = ["张三", "李四", "王五", "闰土", "小明", "茅台", "二妞", "大强"]
+    const yData = [88, 92, 63, 77, 94, 80, 72, 86]
+
+    const option = {
+      title: {
+        text: 'Bar Chart Test'
+      },
+      // 横向柱形图
+      // xAxis: {
+      //   type: 'value'
+      // },
+      // yAxis: {
+      //   type: 'category',
+      //   data: xData
+      // },
+      xAxis: {
+        type: 'category', // 类目轴
+        data: xData
+      },
+      yAxis: {
+        type: 'value'  // 数值轴
+      },
+      series: [{
+        type: 'bar',
+        name: '成绩',
+        data: yData,  // y 轴的数据
+        // markPoint 标注需要的值
+        markPoint: {
+          data: [
+            {
+              name: '最大值',
+              type: 'max'
+            }, {
+              name: '最小值',
+              type: 'min'
+            }, {
+              name: '平均值',
+              type: 'average'
+            }
+          ]
+        },
+        // markLine 图表标线
+        markLine: {
+          data: [
+            {
+              name: '平均值',
+              type: 'average'
+            }
+          ]
+        },
+        // label 数值显示
+        label: {
+          show: true,  // 控制文本标签的显示
+          position: 'inside',  // top/left/right/bottom/inside 等
+          rotate: 30  // 旋转标签（-90度 到 90度）
+        },
+        // barWidth 控制条形的宽度
+        barWidth: '20%'
+      }]
+    }
+
+    barChart.setOption(option)
+  </script>
+</body>
+</html>

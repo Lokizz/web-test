@@ -1,4 +1,3 @@
-// TODO Web Test Snippets
 // todo 显示绑定
 // function foo() {
 //   this.a = 13;
