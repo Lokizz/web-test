@@ -7,10 +7,11 @@
   <title>ECharts Bar example</title>
 </head>
 <body>
-  <div class="chart-container" style="width: 60%; height: 30vh; margin: auto;"></div>
+  <div class="bar-chart" style="width: 80%; height: 30vh; margin: auto;"></div>
+  <div class="line-chart" style="width: 80%; height: 30vh; margin: auto; outline: 1px solid yellow;"></div>
   
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js"></script>
-  <script>
+  <!-- <script>
     const barChart = echarts.init(document.querySelector('.chart-container'))
     const xData = ["张三", "李四", "王五", "闰土", "小明", "茅台", "二妞", "大强"]
     const yData = [88, 92, 63, 77, 94, 80, 72, 86]
@@ -74,6 +75,8 @@
     }
 
     barChart.setOption(option)
-  </script>
+  </script> -->
+  <script src="bar.js"></script>
+  <script src="line.js"></script>
 </body>
 </html>
