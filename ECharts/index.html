@@ -9,20 +9,30 @@
       padding-top: 2rem;
       border-top: 1px solid #eee;
     }
+
+    .chart {
+      width: 80%; 
+      height: 40vh;
+      margin: auto;
+    }
   </style>
-  <title>ECharts Bar example</title>
+  <title>ECharts Examples</title>
 </head>
 <body>
   <!-- 柱状图容器 -->
-  <div class="bar-chart" style="width: 80%; height: 30vh; margin: auto;"></div>
+  <div class="bar-chart chart"></div>
   <!-- 通用配置容器 -->
-  <div class="chart-option" style="width: 80%; height: 30vh; margin: auto;"></div>
+  <div class="chart-option chart"></div>
   <!-- 折线图容器 -->
-  <div class="line-chart" style="width: 80%; height: 30vh; margin: auto;"></div>
+  <div class="line-chart chart"></div>
+  <!-- 散点图容器 -->
+  <div class="scatter-chart chart"></div>
   
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.2/dist/echarts.min.js"></script>
-  <script src="bar.js"></script>
-  <script src="option.js"></script>
-  <script src="line.js"></script>
+  <script src="scripts/bar.js"></script>
+  <script src="scripts/option.js"></script>
+  <script src="scripts/line.js"></script>
+  <script src="scripts/scatter.js"></script>
+
 </body>
 </html>
