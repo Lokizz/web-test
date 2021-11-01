@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      width: 80%;
+      margin: auto;
+      padding-top: 20vh;
+    }
+    h1 {
+      text-align: center;
+    }
+  </style>
+  <title>函数对作用域的影响</title>
+</head>
+<body>
+  <h1>函数对作用域的影响</h1>
+  <p>块级作用域内 function a () {} 这句会将 block:a 的值赋给全局变量 window.a，所以 function:a 前面如果给 block:a 赋了值，后面的全局 window.a 就会被赋予相同的值</p>
+  <script src="app.js"></script>
+</body>
+</html>
