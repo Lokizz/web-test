@@ -1,7 +1,37 @@
 body {
   background: #000;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   background-repeat: no-repeat;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+#canvas {
+  border-top: 16px solid hsl(45deg, 50%, 50%);
+  border-left: 16px solid hsl(120deg, 50%, 50%);
+  border-bottom: 16px solid hsl(210deg, 50%, 50%);
+  border-right: 16px solid hsl(300deg, 50%, 50%);
+  transform: rotate(-15deg);
+  border-radius: 50%;
+
+  filter: 
+    blur(4px)
+    drop-shadow(0 0 8px lightcoral);
+
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(-180deg);
+  }
+
+  100% {
+    transform: rotate(-375deg);
+  }
 }

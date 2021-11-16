@@ -1,0 +1,81 @@
+/* *日历 */
+/* 
+范例来自于《精通 CSS》第三版的第 9 章
+*/
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.cal {
+  /* ? 共享边框 */
+  border-collapse: collapse;
+  /* ? 控制单元格的大小 */
+  table-layout: fixed;
+  width: 100%;
+  max-width: 25em;
+  margin: 0 auto;
+  font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+  text-align: center;
+}
+
+/* ? 设置表格标题的样式 */
+.cal caption {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  line-height: 2;
+  font-size: 1.5em;
+}
+
+/* ? 设置周末单元格的样式 */
+.cal-weekend {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+/* ? 设置单元格样式 */
+.cal th,
+.cal td {
+  line-height: 3;
+  padding: 0;
+  width: calc(100% / 7);
+}
+
+.cal td {
+  border: 1px solid #eee;
+}
+
+.cal thead {
+  border-bottom: 3px solid #666;
+}
+
+.cal a {
+  /* ! 使可点击区域变大 */
+  display: block;
+  text-decoration: none;
+  color: #2f273c;
+}
+
+.cal a:hover,
+.cal a:focus {
+  background: rgba(167, 240, 210, 0.3);
+}
+
+/* ? 为特殊日期添加微妙差异 */
+.cal-inactive {
+  background: #efefef;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.cal-current {
+  background: rgba(71, 14, 62, 0.6);
+  color: #fff;
+}
+
+.cal-current a {
+  color: #fff;
+}
