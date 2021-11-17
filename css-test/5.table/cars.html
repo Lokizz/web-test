@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cars.css">
+  <title>Cars Table</title>
+</head>
+<body>
+  <table class="cars">
+    <caption>Tesla car models</caption>
+    <thead>
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Top Speed</th>
+        <th scope="col">Range</th>
+        <th scope="col">Length</th>
+        <th scope="col">Width</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Starting Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Model S</th>
+        <!-- ! data-label 方便 CSS 中使用 attr() 函数获取对应的值 -->
+        <td data-label="Top Speed">201km/h</td>
+        <td data-label="Range">426km</td>
+        <td data-label="Length">4 976mm</td>
+        <td data-label="Width">1 963mm</td>
+        <td data-label="Weight">2 108kg</td>
+        <td data-label="Starting Price">$69 900</td>
+      </tr>
+      <tr>
+        <th scope="row">Roadster</th>
+        <td data-label="Top Speed">201km/h</td>
+        <td data-label="Range">393km</td>
+        <td data-label="Length">3 946mm</td>
+        <td data-label="Width">1 873mm</td>
+        <td data-label="Weight">1 235kg</td>
+        <td data-label="Starting Price">$109 000</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
