@@ -1,0 +1,156 @@
+/* * 3D Transform */
+
+body {
+  /* ? perspective 表示在观察点位于屏幕前方多远 */
+  /* 默认为无限大，因此平常的变换会没有明显的变化 */
+  /* 恰当的距离一般是 600px ~ 1000px */
+  /* ! 父元素上设置为所有子元素所共享 */
+  /* perspective: 800px; */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 200px;
+  height: 200px;
+  margin: 20vh auto;
+  background: lightcoral;
+  border-radius: 10%;
+
+  position: relative;
+
+  /* ! perspective() 函数 － 在子元素上设置为单独应用 */
+  /* transform: perspective(800px) rotateY(0deg); */
+  animation: roll .3s linear infinite;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(45deg) perspective(800px) rotateY(0deg);
+  }
+
+  25% {
+    transform: rotate(45deg) perspective(800px) rotateY(45deg);
+  }
+
+  50% {
+    transform: rotate(45deg) perspective(800px) rotateY(90deg);
+  }
+
+  75% {
+    transform: rotate(45deg) perspective(800px) rotateY(135deg);
+  }
+
+  100% {
+    transform: rotate(45deg) perspective(800px) rotateY(180deg);
+  }
+}
+
+.man .head {
+    content: " ";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 111;
+}
+
+.man .head .eyes {
+  content: " ";
+  width: 4px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #000;
+
+  position: absolute;
+  z-index: 222;
+}
+
+.eyes:nth-child(1) {
+  top: 40%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.eyes:nth-child(2) {
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.man .head .mouth {
+  content: " ";
+  width: 12px;
+  height: 14px;
+  border-radius: 50%;
+  border-bottom: 3px solid lightsalmon;
+
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 222;
+}
+
+.man .arms {
+  content: " ";
+  width: 16px;
+  height: 32px;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+
+  position: absolute;
+  z-index: 222;
+}
+
+.arms:nth-child(2) {
+  width: 32px;
+  height: 18px;
+  top: 44%;
+  left: 35%;
+  transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.arms:nth-child(3) {
+  top: 40%;
+  left: 52%;
+  transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.man .body {
+  content: " ";
+  width: 3px;
+  height: 40%;
+  background: white;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.man .legs {
+  content: " ";
+  width: 40px;
+  border-bottom: 2px solid white;
+
+  position: absolute;
+  top: 69%;
+  z-index: 222;
+}
+
+.legs:nth-of-type(5) {
+  left: 40%;
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.legs:nth-of-type(6) {
+  left: 41%;
+  transform: rotate(-135deg) translate(-50%, -50%);
+}

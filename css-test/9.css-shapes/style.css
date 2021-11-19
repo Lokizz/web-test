@@ -1,0 +1,31 @@
+/* * CSS Shapes */
+
+/* ? shape-outside - 设置外部文本的流动形状 */
+.main {
+  width: 300px;
+}
+
+.left,
+.right {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+
+.left {
+  shape-outside: margin-box;
+  /* ! 只能应用在浮动元素上 */
+  float: left;
+  /* clip-path: circle(); */
+}
+
+.right {
+  shape-outside: margin-box;
+  float: right;
+}
+
+p {
+  text-align: center;
+}
+

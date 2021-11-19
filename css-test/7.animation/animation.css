@@ -1,0 +1,175 @@
+/* * Animation */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+/* ? 行内元素无法使用 animation */
+.span-test:hover {
+  font-size: 32px;
+}
+
+@keyframes spanTest {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.span-test {
+  font-size: 1em;
+  /* ! 行内文本无法使用 animation 效果 */
+  transition: font-size 0.5s;
+  animation: spanTest 1s;
+}
+
+/* ? animation exp1 - 蹒跚前行的方块 */
+body {
+  background: #663399;
+  margin: 2em;
+}
+
+.logo {
+  color: #fff;
+  font-family: "Roboto Slab", Courier, sans-serif;
+  font-size: 2em;
+  margin: 1em 0;
+}
+
+.box-outer {
+  /* ! 行内文本无法实现 animation */
+  display: inline-block;
+}
+
+.box-inner {
+  display: inline-block;
+  width: .74em;
+  height: .74em;
+  background: #fff;
+}
+
+/* ? 使用 @keyframes 设置动画关键帧序列 */
+@keyframes roll {
+  0% {
+    transform: translateX(-100%);
+    animation-timing-function: ease-in-out;
+  }
+
+  20% {
+    transform: translateX(-100%) skewX(15deg);
+  }
+
+  28% {
+    transform: translateX(-100%) skewX(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  45% {
+    transform: translateX(-100%) skewX(-5deg) rotate(20deg) scaleY(1.1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: translateX(-100%) rotate(45deg) scaleY(1.1);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: translateX(-100%) rotate(90deg);
+  }
+
+  65% {
+    transform: translateX(-100%) rotate(90deg) skewY(10deg);
+  }
+
+  70% {
+    transform: translateX(-100%) rotate(90deg) skewY(0deg);
+  }
+
+  100% {
+    transform: translateX(-100%) rotate(90deg);
+  }
+}
+
+/* ? 将关键帧块连接到元素 */
+.box-inner {
+  animation: roll 1.5s 1s 3 linear;
+  transform-origin: bottom right;
+}
+
+/* 瞬间完成的动画 */
+@keyframes shift {
+  0% {  /* 直接在初始位置结束 */
+    transform: translate(-300%);
+  }
+}
+
+.box-outer {
+  animation: shift 4.5s 1s steps(3, start) backwards;
+}
+
+/* ? animation exp2 - 按照曲线轨迹前行 */
+.jump-icon {
+  display: inline-block;
+  width: 3em;
+  height: 4em;
+  border-radius: .4em;
+  background: cyan;
+  
+  position: relative;
+}
+
+.jump-icon::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: .5em solid yellow;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.jump-icon:before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: #663399;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@keyframes jump {
+  0% {
+    transform: rotate(0) translateX(0px) rotate(0) scale(1);
+  }
+
+  /* 共享相同属性值的关键帧，可直接用逗号隔开 */
+  70%, 100% {
+    transform: rotate(175deg) translateX(-170px) rotate(-175deg) scale(1.5);
+  }
+}
+
+.jump-icon {
+  animation: jump 2s ease-in-out infinite;
+}
