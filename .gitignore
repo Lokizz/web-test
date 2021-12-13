@@ -1,4 +1,4 @@
 # To sufficiently reduce the filesize of the node project. 
 # You don't need to commit to Git your `node_modules` folder, which is generally huge.
 # The `package-lock.json` will make sure `npm` will use those exact versions when running `npm install`.
-Nodejs/node_modules
+node_modules/
