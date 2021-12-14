@@ -1,0 +1,333 @@
+/* 211214 - 添加贴合滚动功能（scorll-nap） */
+
+:root {
+  font-size: 16px;
+  font-family: "Noto Sans SC", sans-serif;
+  --bs-dark-rgb: 117, 68, 94;
+}
+
+/* ? 让 Bootstrap 的 Scrollspy 生效 */
+body {
+  position: relative;
+}
+
+/* * Header Div */
+#nav-bar {
+  background: #fff;
+}
+
+.drop-in {
+  animation-name: dropIn;
+  animation-timing-function: linear;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  /* 修改上下边距 */
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.navbar-brand img {
+  max-width: 40px;
+  min-width: 18px;
+  width: 2.5rem;
+  height: auto;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 0.8rem;
+}
+
+.active-item {
+  transition: all .2s ease-in;
+  font-weight: bold;
+  position: relative;
+  bottom: 0.1rem;
+}
+
+.nav-item:hover {
+  transition: all .2s ease-in;
+  font-weight: 1.1;
+  font-size: 0.9rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  background: linear-gradient(0deg, rgba(var(--bs-primary-rgb), 0.2), rgba(var(--bs-primary-rgb), 0.1), rgba(var(--bs-primary-rgb), 0));
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0.3;
+    top: -5rem;
+  }
+
+  50% {
+    opacity: 0.6;
+    top: -2rem;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes itemHover {
+  0% {
+    
+  }
+}
+/* Header div ends */
+
+
+/* * Main 设置贴合滚动 */
+main {
+  /* ? 设置滚动贴合的方向以及类型 */
+  scroll-snap-type: y mandatory;
+  /* 预留出 padding 容纳标题栏 */
+  scroll-padding-top: 4.5rem;
+  overflow: scroll;
+  height: 100vh;
+}
+
+main > section {
+  height: 100vh;
+  /* ? 设置对应出现的位置 */
+  scroll-snap-align: start;
+}
+
+/* * Banner Div */
+.banner-div .car-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-div .list-group {
+  background-image: none;
+  background-color: transparent;
+}
+
+.banner-div .list-group-item {
+  padding: 0;
+  padding-left: 3px;
+  margin-bottom: 0.5rem;
+  color: var(--bs-dark-rgb);
+  width: auto;
+  user-select: none;
+}
+
+.banner-div .bi-circle-fill {
+  font-size: 1rem;
+}
+
+.banner-div .bi-check2-circle {
+  font-size: 1.2rem;
+}
+
+.banner-div .list-group-item:hover {
+  transition: all .2s ease-in;
+  transform: scale(1.1);
+  font-weight: bold;
+  padding-left: 0.8rem;
+  cursor: pointer;
+}
+
+.banner-div .input-group * {
+  border-radius: 0;
+}
+
+.banner-div .selected {
+  /* transition: all .2s ease-in; */
+  animation-name: selected;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes selected {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+/* Banner div ends */
+
+
+/* * Features div starts */
+.features-div .card-img img {
+  max-width: 4rem;
+  width: 4rem;
+  height: auto;
+  padding: 0.4rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px;
+}
+
+.features-div .card:hover {
+  position: relative;
+  bottom: 0.8rem;
+  transition: all .5s ease-in;
+  box-shadow: 2px 4px 12px 4px rgba(255, 255, 255, 0.1); 
+}
+
+.features-div .card-img img:hover {
+  transition: all .2s ease-in;
+  width: 3.6rem;
+  height: auto;
+}
+/* Features div ends */
+
+
+/* * Pricing div starts */
+.pricing-div .card{
+  max-width: 20rem;
+}
+
+.pricing-div .card:hover {
+  position: relative;
+  bottom: 0.5rem;
+  box-shadow: 0px 4px 12px 4px rgba(255, 255, 255, 0.1); 
+}
+/* Pricing div ends */
+
+
+/* * Reviews div starts */
+.review-div .review-card::after {
+  display: block;
+  opacity: 0.75;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 2rem solid rgba(255, 255, 255);
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: none;
+  position: absolute;
+  left: 2.5rem;
+  bottom: -2rem;
+}
+
+.review-div .user-thumb {
+  border-radius: 50%;
+}
+/* Reviews div ends */
+
+/* * Footer div starts */
+footer {
+  font-size: 0.6rem;
+}
+/* Footer div ends */
+
+
+/* * Etc starts */
+.top-btn {
+  position: fixed;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background: rgba( 73, 138, 255, 1 );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  /* animation */
+  animation-name: btnRollIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+.top-btn:hover {
+  cursor: pointer;
+}
+
+.btn-remove {
+  right: 1rem;
+  animation-name: btnRemove;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes btnRollIn {
+  0% {
+    right: 90vw;
+    opacity: 0.6;
+  }
+
+  40% {
+    right: 70vw;
+    opacity: 0.7;
+  }
+
+  60% {
+    right: 50vw;
+    opacity: 0.8;
+  }
+
+  100% {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+@keyframes btnRemove {
+  0% {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  30% {
+    bottom: 0.5rem;
+    opacity: 1;
+  }
+
+  50% {
+    bottom: 50vh;
+    opacity: 1;
+  }
+
+  80% {
+    bottom: 45vh;
+    opacity: 0.6;
+  }
+
+  100% {
+    bottom: 80vh;
+    opacity: 0.3;
+  }
+}
+/*  Etc ends */
+
+
+/* * Media Queries */
+@media screen and (min-width: 576px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  :root {
+    font-size: 20px;
+  }
+}
