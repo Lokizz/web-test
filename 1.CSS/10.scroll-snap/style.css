@@ -1,0 +1,44 @@
+/* * Scroll Snap - 滚动贴合特效测试 */
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+main {
+  /* ? 指定滚动的方向以及类型 */
+  scroll-snap-type: y mandatory;
+  /* ? 指定滚动时预留的间距 */
+  scroll-padding: 4rem;
+  overflow: scroll;
+  height: 100vh;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  
+  /* ? 滚动对应的对其位置 */
+  scroll-snap-align: start;
+}
+
+h1 {
+  /* ! sticky - 可视为 相对定位和固定定位 混合 */
+  /* 元素在跨越特定阈值前为相对定位，之后为固定定位 */
+  position: sticky;
+  top: 0;
+  height: 4rem;
+}
+
+section:nth-of-type(odd) {
+  background: lightcoral;
+}
+
+section:nth-of-type(even) {
+  background: pink;
+}
