@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+  </style>
+  <title>13.overflow与伪元素的搭配使用</title>
+</head>
+<body>
+  <div class="header">
+    <p>
+      overflow 对伪元素的影响<br>
+      (注意看左上角绿色的 <i>box-shadow</i> 显示)
+    </p>
+    <p class="msg">伪元素 ::before 设置了左上角的 <i>box-shadow</i> 为<i style="color:lightgreen;">浅绿色</i><br>div 容器本身的 <i>box-shadow</i> 设置为右下角的<i style="color:lightcoral;">浅珊瑚色</i></p>
+  </div>
+  <div class="test"></div>
+  <button>设置 overflow 为 hidden</button>
+
+  <script>
+    document.querySelector('button').addEventListener('click', () => {
+      const testDiv = document.querySelector('.test')
+      const pEle = document.querySelector('.msg')
+      const btn = document.querySelector('button')
+
+      testDiv.classList.toggle('isOverflow')
+      if (testDiv.classList.contains('isOverflow')) {
+        testDiv.style.overflow = 'hidden'
+        btn.textContent = '取消 overflow 的设置'
+        btn.style.backgroundColor = 'lightCoral';
+        btn.style.color = '#eee'
+        pEle.innerHTML = `
+          <i>overflow: hidden;</i> <br>
+          -><br>伪元素 ::before 超出 div 容器的左上角部分 <i>box-shadow</i> 被截取消失<br>但 div 容器本身的 <i>box-shadow</i> 部分不受影响
+        `
+      } else {
+        testDiv.style.overflow = 'unset'
+        btn.textContent = '设置 overflow 为 hidden'
+        btn.style.backgroundColor = '#fff';
+        btn.style.border = '1px solid lightcoral';
+        btn.style.fontSize = 'unset';
+        btn.style.color = 'lightcoral'
+        pEle.innerHTML = `
+          <i>overflow: unset;</i> (恢复 overflow 属性的值为默认值) <br>
+          -><br>伪元素 ::before 恢复左上角的 <i>box-shadow</i> 为<i style="color:lightgreen;">浅绿色</i><br>div 容器本身的 <i>box-shadow</i> 依旧为右下角的<i style="color:lightcoral;">浅珊瑚色</i>
+        `
+      }
+    })
+  </script>
+</body>
+</html>

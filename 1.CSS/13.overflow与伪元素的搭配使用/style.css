@@ -1,0 +1,67 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: consolas;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #232323;
+  font-size: 1.5rem;
+}
+
+.header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  padding-top: 6vh; 
+  margin: auto;
+}
+
+p {
+  color: white; 
+  margin-top: -1rem; 
+  color: yellow;
+}
+
+.msg {
+  color: white; 
+}
+
+div.test {
+  text-align: center;
+  font-size: 8px;
+  width: 200px;
+  height: 200px;
+  background: #eee;
+  position: absolute;
+  box-shadow: 8px 8px 16px lightcoral;
+  border-radius: 12px;
+  /* overflow: hidden; */
+}
+
+div.test::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
+  box-shadow: -10px -10px 20px lightgreen;
+}
+
+button {
+  position: relative;
+  top: 20vh;
+  display: block;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+}

@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 main {
   /* ? 指定滚动的方向以及类型 */
   scroll-snap-type: y mandatory;
