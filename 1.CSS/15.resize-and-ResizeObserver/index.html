@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .box {
+      /* ! resize(horizontal|vertical|both|none) -- 让元素可以按照指定方向进行拉伸缩放 */
+      /* ! resize 想要生效，overflow 的值不能为默认值(visible) */
+      resize: both;
+      overflow: auto;
+
+      width: 20vw;
+      height: 20vw;
+      background: lightcoral;
+      
+      box-shadow: 14px 12px 4px pink;
+      border-radius: 50%;
+    }
+  </style>
+  <title>Resize CSS Property and ResizeObserver Object</title>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
